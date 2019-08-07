@@ -6,11 +6,10 @@ jobs:
     steps:
       - checkout:
       - run:
-              command: gradle test
+              gradle test
       - store_test_results:
               path: build/test-results
+      - run: gradle jar
       - store_artifacts:
               path: /code/test-results
               destination: prefix
-      - run: 
-        command: gradle jar
